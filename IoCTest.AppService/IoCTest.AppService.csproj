@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IoCTest.Contract\IoCTest.Contract.csproj" />
+    <ProjectReference Include="..\IoCTest.Repository\IoCTest.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
