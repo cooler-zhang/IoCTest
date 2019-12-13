@@ -7,7 +7,7 @@ using Unity.Lifetime;
 
 namespace IoCTest.Unity.Host
 {
-    public static class Bootstrapper
+    public class Bootstrapper
     {
         public static IUnityContainer Initialise()
         {
@@ -22,12 +22,6 @@ namespace IoCTest.Unity.Host
         {
             var container = new UnityContainer();
 
-            //container.RegisterType<TestDbContext>();
-            //container.RegisterType<IProductRepository, ProductRepository>();
-            //container.RegisterType<IProductAppService, ProductAppService>();
-
-            container.RegisterType<IRemoteAppService, RemoteAppService>(new PerResolveLifetimeManager());
-
             RegisterTypes(container);
 
             return container;
@@ -35,6 +29,12 @@ namespace IoCTest.Unity.Host
 
         public static void RegisterTypes(IUnityContainer container)
         {
+            //container.RegisterType<TestDbContext>();
+            //container.RegisterType<IProductRepository, ProductRepository>();
+            //container.RegisterType<IProductAppService, ProductAppService>();
+
+            container.RegisterType<IRemoteAppService, RemoteAppService>();
+            container.RegisterType<IPerThreadLifetimeAppService, PerThreadLifetimeAppService>(new PerThreadLifetimeManager());
         }
     }
 }
