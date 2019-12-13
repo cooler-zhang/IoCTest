@@ -8,6 +8,8 @@ namespace IoCTest
     {
         public DbSet<Product> Products { get; set; }
 
+        public DbSet<Catalog> Catalogs { get; set; }
+
         public TestDbContext(DbContextOptions<TestDbContext> options)
             : base(options)
         {

@@ -8,5 +8,7 @@ namespace IoCTest.Contract
     public interface IProductRepository
     {
         Product Find(int id);
+
+        IList<ProductDto> GetProducts();
     }
 }

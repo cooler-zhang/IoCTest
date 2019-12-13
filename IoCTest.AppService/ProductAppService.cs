@@ -19,5 +19,10 @@ namespace IoCTest.AppService
         {
             return _repository.Find(id);
         }
+
+        public IList<ProductDto> GetProducts()
+        {
+            return _repository.GetProducts();
+        }
     }
 }

@@ -33,5 +33,12 @@ namespace IoCTest.Controllers
         {
             return _appService.Find(id);
         }
+
+        [HttpGet("products")]
+        public ActionResult<string> GetProducts()
+        {
+            var products  = _appService.GetProducts();
+            return "products";
+        }
     }
 }

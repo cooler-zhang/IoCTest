@@ -3,6 +3,7 @@ using IoCTest.Domain;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace IoCTest.Repository
 {
@@ -18,6 +19,22 @@ namespace IoCTest.Repository
         public Product Find(int id)
         {
             return _context.Products.Find(id);
+        }
+
+        public IList<ProductDto> GetProducts()
+        {
+            var expression = from a in _context.Products
+                             join b in _context.Catalogs on a.CatalogId equals b.Id into ab
+                             from abt in ab.DefaultIfEmpty()
+                             select new ProductDto
+                             {
+                                 Id = a.Id,
+                                 Name = a.Name,
+                                 Desc = a.Desc,
+                                 CatalogName = abt.Name
+                             };
+
+            return expression.ToList();
         }
     }
 }
