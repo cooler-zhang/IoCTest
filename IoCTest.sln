@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoCTest.Repository", "IoCTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoCTest.Domain", "IoCTest.Domain\IoCTest.Domain.csproj", "{7D2BBA6D-2B90-48F9-87EB-CE1D1424371B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoCTest.Unity.Host", "IoCTest.Unity.Host\IoCTest.Unity.Host.csproj", "{B7386D43-F79C-4B2C-B5C9-7A8F66BA8829}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7D2BBA6D-2B90-48F9-87EB-CE1D1424371B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D2BBA6D-2B90-48F9-87EB-CE1D1424371B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D2BBA6D-2B90-48F9-87EB-CE1D1424371B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7386D43-F79C-4B2C-B5C9-7A8F66BA8829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7386D43-F79C-4B2C-B5C9-7A8F66BA8829}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7386D43-F79C-4B2C-B5C9-7A8F66BA8829}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7386D43-F79C-4B2C-B5C9-7A8F66BA8829}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -21,6 +21,7 @@ namespace IoCTest.Controllers
             this._remoteAppService = remoteAppService;
         }
 
+        [HttpGet]
         public ActionResult<string> Index()
         {
             _remoteAppService.Test();
