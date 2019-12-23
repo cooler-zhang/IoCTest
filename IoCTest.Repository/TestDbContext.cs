@@ -1,6 +1,6 @@
 ﻿using IoCTest.Domain;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Data.Entity;
 
 namespace IoCTest
 {
@@ -10,25 +10,17 @@ namespace IoCTest
 
         public DbSet<Catalog> Catalogs { get; set; }
 
-        public TestDbContext(DbContextOptions<TestDbContext> options)
-            : base(options)
+        public TestDbContext()
+            : base("Data Source=.;Initial Catalog=Test;User ID=sa;Password=123456")
         {
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=Test;User ID=sa;Password=123456");
-            base.OnConfiguring(optionsBuilder);
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-        }
 
-        public override void Dispose()
-        {
-            base.Dispose();
+            modelBuilder.Entity<Product>().ToTable("Product");
+            modelBuilder.Entity<Catalog>().ToTable("Catalog");
         }
     }
 }

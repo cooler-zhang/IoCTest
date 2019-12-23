@@ -12,6 +12,8 @@ namespace IoCTest.Contract
 
         public string Desc { get; set; }
 
+        public int? CatalogId { get; set; }
+
         public string CatalogName { get; set; }
     }
 }

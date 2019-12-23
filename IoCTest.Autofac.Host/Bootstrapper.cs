@@ -2,6 +2,7 @@
 using Autofac.Integration.Mvc;
 using IoCTest.AppService;
 using IoCTest.Contract;
+using IoCTest.Repository;
 using System.Web.Mvc;
 
 namespace IoCTest.Autofac.Host
@@ -29,6 +30,9 @@ namespace IoCTest.Autofac.Host
             // OPTIONAL: Enable property injection into action filters.
             builder.RegisterFilterProvider();
 
+            builder.RegisterType<TestDbContext>().SingleInstance();
+            builder.RegisterType<ProductRepository>().As<IProductRepository>();
+            builder.RegisterType<ProductAppService>().As<IProductAppService>();
             builder.RegisterType<RemoteAppService>().As<IRemoteAppService>();
 
             //// OPTIONAL: Enable action method parameter injection (RARE).
@@ -36,6 +40,8 @@ namespace IoCTest.Autofac.Host
 
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
+
+            ContainerManager.Container = container;
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
             return builder;

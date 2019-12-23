@@ -28,7 +28,7 @@ namespace IoCTest
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddDbContext<TestDbContext>();
+            //services.AddDbContext<TestDbContext>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IProductAppService, ProductAppService>();
             services.AddTransient<IRemoteAppService, RemoteAppService>();

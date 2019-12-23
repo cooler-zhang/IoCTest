@@ -23,18 +23,21 @@ namespace IoCTest.Repository
 
         public IList<ProductDto> GetProducts()
         {
-            var expression = from a in _context.Products
-                             join b in _context.Catalogs on a.CatalogId equals b.Id into ab
-                             from abt in ab.DefaultIfEmpty()
-                             select new ProductDto
-                             {
-                                 Id = a.Id,
-                                 Name = a.Name,
-                                 Desc = a.Desc,
-                                 CatalogName = abt.Name
-                             };
+            var query = (from a in _context.Products
+                         join b in _context.Catalogs on a.CatalogId equals b.Id into ab
+                         from abt in ab.DefaultIfEmpty()
+                         select new ProductDto
+                         {
+                             Id = a.Id,
+                             Name = a.Name,
+                             Desc = a.Desc,
+                             CatalogId = abt.Id,
+                             CatalogName = abt.Name
+                         });
 
-            return expression.ToList();
+            var test = query?.FirstOrDefault(a => a.Id == 2)?.Name;
+
+            return query.ToList();
         }
     }
 }
